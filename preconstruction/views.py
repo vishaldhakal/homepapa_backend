@@ -497,9 +497,9 @@ def validate_message(message):
 @api_view(["POST"])
 def ContactFormSubmission(request):
     if request.method == "POST":
-        subject = "Inquiry about " + \
+        subject = "Homepapa - Inquiry about " + \
             request.POST["proj_name"]+" in " + \
-            request.POST["cityy"]+" - Dolphy"
+            request.POST["cityy"]
         emaill = "Homepapa <info@homepapa.ca>"
         headers = {'Reply-To': request.POST["email"]}
 
