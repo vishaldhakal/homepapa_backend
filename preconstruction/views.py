@@ -500,7 +500,7 @@ def ContactFormSubmission(request):
         subject = "Inquiry about " + \
             request.POST["proj_name"]+" in " + \
             request.POST["cityy"]+" - Dolphy"
-        emaill = "Dolphy <MS_gT723c@dolphy.ca>"
+        emaill = "Homepapa <info@homepapa.ca>"
         headers = {'Reply-To': request.POST["email"]}
 
         name = request.POST["name"]
@@ -512,14 +512,14 @@ def ContactFormSubmission(request):
         if validate_name(request.POST["name"]) and validate_email(request.POST["email"]) and validate_phone(request.POST["phone"]):
             body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}\nIs a realtor?: {realtor}"
             email = EmailMessage(
-                subject, body, emaill, ["hello@dolphy.ca"],
+                subject, body, emaill, ["milan@homebaba.ca"],
                 reply_to=[email], headers=headers
             )
             email.send(fail_silently=False)
             return HttpResponse("Sucess")
         else:
             email = EmailMessage(
-                subject, body, emaill, ["hello@dolphy.ca"],
+                subject, body, emaill, ["milan@homebaba.ca"],
                 reply_to=[email], headers=headers
             )
             email.send(fail_silently=False)
