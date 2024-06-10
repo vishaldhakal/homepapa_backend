@@ -204,4 +204,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.resend.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'resend'
-EMAIL_HOST_PASSWORD = 're_YzH74c67_4LS2ERBMuWRDKnzsfodjRdX2'
+EMAIL_HOST_PASSWORD = 're_JmnSSwRn_MiP1HoqNne9thk8ntJfSAuuP'
