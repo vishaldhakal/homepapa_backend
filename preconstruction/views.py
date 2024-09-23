@@ -516,6 +516,14 @@ def ContactFormSubmission(request):
                 reply_to=[email], headers=headers
             )
             email.send(fail_silently=False)
+            #send a thank you for contacting email
+            new_subject = "Thank you for contacting Homebaba"
+            new_body = f"Hello {name},\n\nThank you for contacting Homebaba. We will get back to you as soon as possible.\n\nBest Regards,\nHomebaba Team"
+            new_email = EmailMessage(
+                new_subject, new_body, emaill, [email],
+                reply_to=["contact@homebaba.ca"], headers=headers
+            )
+            new_email.send(fail_silently=False)
             return HttpResponse("Sucess")
         else:
             email = EmailMessage(
