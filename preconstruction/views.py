@@ -508,6 +508,7 @@ def ContactFormSubmission(request):
         phone = request.POST["phone"]
         message = request.POST["message"]
         realtor = request.POST["realtor"]
+        user_email = request.POST["email"]
 
         if validate_name(request.POST["name"]) and validate_email(request.POST["email"]) and validate_phone(request.POST["phone"]):
             body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}\nIs a realtor?: {realtor}"
@@ -520,7 +521,7 @@ def ContactFormSubmission(request):
             new_subject = "Thank you for contacting Homebaba"
             new_body = f"Hello {name},\n\nThank you for contacting Homebaba. We will get back to you as soon as possible.\n\nBest Regards,\nHomebaba Team"
             new_email = EmailMessage(
-                new_subject, new_body, "Homepapa <info@homepapa.ca>", ["vishaldhakal96@gmail.com"],
+                new_subject, new_body, "Homepapa <info@homepapa.ca>", [user_email],
                 reply_to=["contact@homebaba.ca"], headers=headers
             )
             new_email.send(fail_silently=False)
