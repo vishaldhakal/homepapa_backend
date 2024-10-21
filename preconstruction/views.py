@@ -537,3 +537,12 @@ def ContactFormSubmission(request):
         return HttpResponse("Not post req")
     
 
+
+@api_view(['GET'])
+def del_non_turman_precons(request):
+    # for city Calgary and Edmonton delete all precons which are not by Turman Homes
+    cities = City.objects.filter(slug__in=["calgary", "edmonton"])
+    for city in cities:
+        precons = PreConstruction.objects.filter(city=city).exclude(developer__name__icontains="Turman")
+        precons.delete()
+    return Response({"message": "All non-Turman Homes preconstructions in Calgary and Edmonton have been deleted."})
