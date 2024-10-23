@@ -61,10 +61,10 @@ class DeveloperRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 
 
 @api_view(['GET'])
-def slugify_all_news(request):
-    developers = News.objects.all()
+def slugify_all_devs(request):
+    developers = Developer.objects.all()
     for news in developers:
-        news.slug = slugify(news.news_title)
+        news.slug = slugify(news.name)
         news.save()
     return Response({"message": "done"})
 

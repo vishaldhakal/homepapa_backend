@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from .views import DeveloperListCreateView,get_all_precons_search,get_all_precons_city,ContactFormSubmission,PreConstructionsDeveloper,news_detail, slugify_all_news,DeveloperRetrieveUpdateDeleteView, PreConstructionListCreateView, PreConstructionRetrieveUpdateDeleteView, EventListCreateView, EventRetrieveUpdateDeleteView, NewsListCreateView, NewsRetrieveUpdateDeleteView, FavouriteListCreateView, FavouriteRetrieveUpdateDeleteView, CityListCreateView, CityRetrieveUpdateDeleteView, PreConstructionDetailView, PreConstructionsCityView, delete_image, delete_floorplan, remove_last_part_of_slug, get_all_city, get_related_precons,get_all_precons
+from .views import DeveloperListCreateView,get_all_precons_search,get_all_precons_city,ContactFormSubmission,PreConstructionsDeveloper,news_detail, slugify_all_devs,DeveloperRetrieveUpdateDeleteView, PreConstructionListCreateView, PreConstructionRetrieveUpdateDeleteView, EventListCreateView, EventRetrieveUpdateDeleteView, NewsListCreateView, NewsRetrieveUpdateDeleteView, FavouriteListCreateView, FavouriteRetrieveUpdateDeleteView, CityListCreateView, CityRetrieveUpdateDeleteView, PreConstructionDetailView, PreConstructionsCityView, delete_image, delete_floorplan, remove_last_part_of_slug, get_all_city, get_related_precons,get_all_precons
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -31,8 +31,8 @@ urlpatterns = [
          name='preconstruction-city'),
     path('preconstructions-developer/<str:slug>/', PreConstructionsDeveloper,
          name='preconstruction-developer'),
-    path('slugify-news/', slugify_all_news,
-         name='slugify_all_news'),
+    path('slugify-developers/', slugify_all_devs,
+         name='slugify_all_devs'),
     path('preconstructions-detail/<str:slug>/', PreConstructionDetailView,
          name='preconstruction-retrieve'),
     path('related-precons/<str:city>/',
